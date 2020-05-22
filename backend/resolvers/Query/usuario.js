@@ -23,10 +23,12 @@ module.exports = {
         return getUsuarioLogado(usuario)
     },
 
-    usuarios() {
+    usuarios(_, args, ctx) {
+        ctx && ctx.validarAdmin()
         return db('usuarios')
     },
-    async usuario(_, { filtro }) {
+    async usuario(_, { filtro }, ctx) {
+        ctx && ctx.validarUsuarioFiltro(filtro)
         if(!filtro) return null
         const { id, email } = filtro;
 
