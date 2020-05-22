@@ -21,8 +21,6 @@ module.exports = {
         }
 
         return getUsuarioLogado(usuario)
-
-
     },
 
     usuarios() {
